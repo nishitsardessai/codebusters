@@ -70,23 +70,45 @@
             }
         google.maps.event.addDomListener(window, 'load', initialize);
         </script>
-        <script language="Javascript">
-            function animate(idx) {
-        $($('.block')[idx]).animate({ backgroundColor: "#ff0000" }, 200, function () {
-            var idx2 = idx;
-            $($('.block')[idx2]).animate({ backgroundColor: "#ffffff" }, 200, function () {});
-            if (idx >= $('.block').length - 1) {
-                setTimeout(animate(0), 200);
-            } else setTimeout(animate(idx + 1), 200);
-        });
-    }
+        <script type="text/javascript">
+            var now = new Date();
+            var hours = now.getHours();
 
-    $(document).ready(function () {
-        animate(0);
-    });
+//Keep in code - Written by Computerhope.com
+//Place this script in your HTML heading section
+
+            document.write('It\'s now: ', hours, '<br><br>');
+            document.bgColor="#CC9900";
+
+//18-19 night
+            if (hours > 17 && hours < 20){
+                document.write ('<body style="background-color: orange">');
+            }
+//20-21 night
+            else if (hours > 19 && hours < 22){
+                document.write ('<body style="background-color: orangered">');
+            }
+            //22-4 night
+            else if (hours > 21 || hours < 5){
+                document.write ('<body style="background-color: #C0C0C0;">');
+            }
+            //9-17 day
+            else if (hours > 8 && hours < 18){
+                document.write ('<body style="background-color: #616D7E">');
+            }
+            //7-8 day
+            else if (hours > 6 && hours < 9){
+                document.write ('<body style="background-color: skyblue">');}
+            //5-6 day
+            else if (hours > 4 && hours < 7){
+                document.write ('<body style="background-color: steelblue">');
+            }
+            else {
+                document.write ('<body style="background-color: white">');
+            }
         </script>
     </head>
-    <body onload="getLocation();animate()" id="Q">
+    <body onload="getLocation();">
         <header>
             <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
                 <div class="col-sm-4 ">
